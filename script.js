@@ -27,6 +27,7 @@ const HOURS = [];
 // A $( document ).ready() block.
 $(document).ready(function () {
   getWorkDayScheduler();
+  getCurrentHour();
 
   $("#showNotification").hide();
 
@@ -41,13 +42,14 @@ $(document).ready(function () {
     $("#showNotification").fadeIn();
     $("#showNotification").fadeOut(3000);
   });
-
-  getCurrentHour();
 });
 
 $("#currentDay").text(getTodayDate());
 
+setInterval(getCurrentHour, 15000); //update color time every 15 mintues
+
 function getCurrentHour() {
+  console.log("checking Ttime");
   let date = new Date();
   let getCurrentHour = date.getHours();
   let getTimeBlockHour = 0;
@@ -68,6 +70,7 @@ function getCurrentHour() {
     }
   }
 }
+
 function getWorkDayScheduler() {
   let divs = document.querySelectorAll("div");
 
