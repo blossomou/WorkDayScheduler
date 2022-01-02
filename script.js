@@ -49,21 +49,22 @@ $("#currentDay").text(getTodayDate());
 
 function getCurrentHour() {
   let date = new Date();
-  let getCurrentHour = ((date.getHours() + 11) % 12) + 1;
+  let getCurrentHour = date.getHours();
   let getTimeBlockHour = 0;
 
   for (let i = 0; i < HOURS.length; i++) {
     getTimeBlockHour = parseInt(HOURS[i].split("-")[1]);
+    let name = `#${HOURS[i]} .description`;
 
     if (getTimeBlockHour < getCurrentHour) {
-      $(this).parent().children("textarea").addClass("past");
+      $(name).addClass("past");
     } else if (getCurrentHour === getTimeBlockHour) {
-      $(this).parent().children("textarea").removeClass("past");
-      $(this).parent().children("textarea").addClass("present");
+      $(name).removeClass("past");
+      $(name).addClass("present");
     } else {
-      $(this).parent().children("textarea").removeClass("past");
-      $(this).parent().children("textarea").removeClass("present");
-      $(this).parent().children("textarea").addClass("future");
+      $(name).removeClass("past");
+      $(name).removeClass("present");
+      $(name).addClass("future");
     }
   }
 }
