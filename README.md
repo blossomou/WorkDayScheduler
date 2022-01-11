@@ -18,6 +18,6 @@ https://blossomou.github.io/WorkDayScheduler/
 
 ## Contribution
 
-Made with ❤️ by Blossom
+Made by Blossom
 
-### ©️2022 Weather Dashboard
+### ©️2022 WorkDay Scheduler
